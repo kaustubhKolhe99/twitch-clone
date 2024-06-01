@@ -21,11 +21,11 @@ export const Login = ({switchAuthHandler}) =>{
           ...prevState,
           [field]: {
             ...prevState[field],
-            value,
+            value,              
           },
         }));
       };
-   
+      
       const handleInputValidationOnBlur = (value, field) =>{
         let isValid = false;
         switch (field){
