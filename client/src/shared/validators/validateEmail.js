@@ -1,6 +1,7 @@
-export const validateEmail = (email) =>{
-    const regex = /\$+@\S+\.\S+/;
-    return regex.test(email);
-}
+export const validateEmail = (email) => {
+  const regex = /\S+@\S+\.\S+/;
 
-export const emailValidationMessage = 'Please enter a valid email address.'
+  return regex.test(email);
+};
+
+export const emailValidationMessage = "Please enter a valid email address.";
