@@ -13,8 +13,15 @@ const userSchema = new Schema({
     },
     password: {
         type: String,
+    },
+    channel: {
+        type:Schema.Types.ObjectId,
+        ref: "Channel",
+    },
+    followedChannels: {
+        type: [{type: Schema.Types.ObjectId, ref: "Channel"}],
+        default: [],
     }
- 
-})
+});
 
 export default mongoose.model("User", userSchema);

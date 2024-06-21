@@ -4,7 +4,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import authRouter from './src/routes/authRoutes.js';
 import mongoose from 'mongoose'
-import { error } from 'console';
+import channelsRoutes from './src/routes/channelsRoutes.js';
+
 dotenv.config();
 
 const PORT = process.env.PORT || process.env.API_PORT;
@@ -15,7 +16,9 @@ app.use(express.json());
 
 app.use(cors());
 
+//routes
 app.use("/api/auth",authRouter)
+app.use("/api/channels", channelsRoutes);
 app.get("/", (req, res)=>{
     return res.send("Hello here is your server")
 })
@@ -31,7 +34,3 @@ mongoose.connect(process.env.MONGO_URL)
         console.log("Database Connection failed, Server not started");
         console.log(err);
     })
-
-
-
-
