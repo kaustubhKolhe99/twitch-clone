@@ -4,7 +4,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import authRouter from './src/routes/authRoutes.js';
 import mongoose from 'mongoose'
-import channelsRoutes from './src/routes/channelsRoutes.js';
+import channelsRouter from './src/routes/channelsRouter.js';
+import settingsRouter from './src/routes/settingsRouter.js';
 
 dotenv.config();
 
@@ -17,8 +18,10 @@ app.use(express.json());
 app.use(cors());
 
 //routes
-app.use("/api/auth",authRouter)
-app.use("/api/channels", channelsRoutes);
+app.use("/api/auth",authRouter);
+app.use("/api/channels", channelsRouter);
+app.use("/api/settings", settingsRouter);
+
 app.get("/", (req, res)=>{
     return res.send("Hello here is your server")
 })
