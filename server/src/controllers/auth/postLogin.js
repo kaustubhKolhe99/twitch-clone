@@ -7,7 +7,8 @@ export const postLogin = async (req, res)=>{
         const {email, password} = req.body;
         const userExist = await User.exists({email: email});
         const user = await User.findOne({email: email.toLowerCase()});
-        if(userExist &&  bcrypt.compare(password, user.password)){
+
+        if(userExist && (await bcrypt.compare(password, user.password))){
             const token = jwt.sign(
                 {
                     userId: user._id,
