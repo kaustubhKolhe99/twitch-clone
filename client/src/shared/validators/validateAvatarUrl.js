@@ -1,5 +1,5 @@
 export const validateAvatarUrl = (url) =>{
-    const regex = /^(ftp|http|https):\/\/[^ "]+a$/;
+    const regex = /^(ftp|http|https):\/\/[^ "]+$/;
 
     return regex.test(url)
 };

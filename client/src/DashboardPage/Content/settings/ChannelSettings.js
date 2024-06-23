@@ -14,7 +14,7 @@ import { Input } from "../../../shared/components";
 const inputs = [
     {
         field: 'username',
-        label: 'username',
+        label: 'Username',
         validationMessage: usernameValidationMessage,
         type: 'text',
     },
@@ -26,13 +26,13 @@ const inputs = [
     },
     {
         field: 'avatarUrl',
-        label: 'avatarUrl',
+        label: 'Avatar URL',
         validationMessage: avatarUrlValidationMessage,
         type: 'text',
     },
     {
         field: 'description',
-        label: 'description',
+        label: 'Description',
         validationMessage: descriptionValidationMessage,
         type: 'text',
         textarea: true,
@@ -103,6 +103,16 @@ export const ChannelSettings  = ({ settings }) =>{
         }));    
     };
     
+    const handleFormSubmit = (e) =>{
+        e.preventDefault();
+    }
+
+    const isSubmitButtonDisabled = 
+        !formState.username.isValid ||
+        !formState.title.isValid ||
+        !formState.description.isValid ||
+        !formState.avatarUrl.isValid 
+
     return(
         <form className="settings-form">
             {inputs.map(input => (
@@ -118,6 +128,9 @@ export const ChannelSettings  = ({ settings }) =>{
                     textarea={input.textarea}
                 />
             ))}
+            <button onClick={handleFormSubmit} disabled={isSubmitButtonDisabled}>
+                Save Changes 
+            </button>
         </form>
     )
 }
