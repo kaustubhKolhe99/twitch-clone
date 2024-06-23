@@ -1,6 +1,6 @@
 import User from "../../models/User.js";
 import bcrypt from "bcryptjs";
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 import Channel from "../../models/Channel.js";
 
 export const postRegister = async (req, res)=>{

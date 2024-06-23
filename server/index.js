@@ -1,11 +1,11 @@
-import express from 'express';
-import http from 'http';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import authRouter from './src/routes/authRoutes.js';
-import mongoose from 'mongoose'
-import channelsRouter from './src/routes/channelsRouter.js';
-import settingsRouter from './src/routes/settingsRouter.js';
+import express from "express";
+import http from "http";
+import cors from "cors";
+import dotenv from "dotenv";
+import authRouter from "./src/routes/authRoutes.js";
+import mongoose from "mongoose"
+import channelsRouter from "./src/routes/channelsRouter.js";
+import settingsRouter from "./src/routes/settingsRouter.js";
 
 dotenv.config();
 

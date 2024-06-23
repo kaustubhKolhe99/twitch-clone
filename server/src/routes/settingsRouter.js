@@ -1,5 +1,5 @@
 import express from "express";
-import ExpressValidator from 'express-joi-validation';
+import ExpressValidator from "express-joi-validation";
 import Joi from "joi";
 import { verifyToken } from "../middlewares/auth.js";
 import { getChannelSettings, putChannelSettings, patchChangePassword } from "../controllers/controllers.js";
@@ -42,18 +42,18 @@ const passwordSchema = Joi.object({
     .required(),
 });
 
-router.get('/channel', 
+router.get("/channel", 
     verifyToken, 
     getChannelSettings
 );
 
-router.put('/channel', 
+router.put("/channel", 
     verifyToken, 
     validator.body(channelSettingsSchema), 
     putChannelSettings
 );
 
-router.patch('/password', 
+router.patch("/password", 
     verifyToken, 
     validator.body(passwordSchema), 
     patchChangePassword

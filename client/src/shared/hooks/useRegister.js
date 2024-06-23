@@ -22,7 +22,7 @@ export const useRegister = () => {
     if (response.error) {
       return toast.error(
         response.exception?.response?.data ||
-          "Error occured while signing up. Please try again"
+          "Error occurred while signing up. Please try again"
       );
     }
 

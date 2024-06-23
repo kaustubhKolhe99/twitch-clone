@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
 const config = process.env;
 
@@ -17,7 +17,7 @@ export const verifyToken = (req, res, next) =>{
 
     }catch(err){
         console.log(err);
-        return res.status(401).send('invalid token');
+        return res.status(401).send("invalid token");
     }
     return next();
 

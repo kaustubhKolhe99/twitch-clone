@@ -21,7 +21,7 @@ export const useLogin = () => {
     if (response.error) {
       return toast.error(
         response.exception?.response?.data ||
-          "Error occured while loggin in. Please try again"
+          "Error occurred while login in. Please try again"
       );
     }
 
