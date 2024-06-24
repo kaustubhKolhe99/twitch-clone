@@ -1,15 +1,16 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { getChannelSettings } from "../../api";
-import toast from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 export const useChannelSettings = () =>{
     const [ channelSettings, setChannelSettings ] = useState(null);
 
     const fetchChannelSettings = async () =>{
         const response = await getChannelSettings();
+
         if(response.error){
             return toast.error(
-                response.exception?.response?.data || 'Error Occurred When fetching channel settings'
+                response.exception?.response?.data || 'Error Occurred While fetching channel settings'
             )
         }
         setChannelSettings({
@@ -18,15 +19,19 @@ export const useChannelSettings = () =>{
             avatarUrl: response.data.avatarUrl,
             description: response.data.description,
             streamKey: response.data.streamKey,
-        });
+        });        
+    }
 
-        const saveSettings = async()=>{
-        }
 
-        return{
-            isFetching: !channelSettings,
-            channelSettings,
-            saveSettings,
-        }
+    const saveSettings = async()=>{
+    }
+
+    useEffect(()=>{
+        fetchChannelSettings()
+    }, [])
+    return {
+        isFetching : !channelSettings,
+        channelSettings: channelSettings,
+        saveSettings,
     }
 }

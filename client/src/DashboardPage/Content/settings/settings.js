@@ -7,19 +7,12 @@ import { LoadingSpinner } from '../../../shared/components'
 
 
 export const Settings = () => {
-    const { channelSettings, isFetching } = useChannelSettings; 
+    const {  isFetching, channelSettings  }  = useChannelSettings();
 
-    if(isFetching){
+    if(isFetching ){
         return <LoadingSpinner/>;
     }
-    
-    if(!channelSettings){
-        return(
-            <span>
-                Fetching the data 
-            </span>
-        )
-    }
+
     return(
         <div className="settings-container">
             <span>Settings</span>
