@@ -7,7 +7,7 @@ import { LoadingSpinner } from '../../../shared/components'
 
 
 export const Settings = () => {
-    const {  isFetching, channelSettings  }  = useChannelSettings();
+    const {  isFetching, channelSettings, saveSettings  }  = useChannelSettings();
 
     if(isFetching ){
         return <LoadingSpinner/>;
@@ -16,7 +16,7 @@ export const Settings = () => {
     return(
         <div className="settings-container">
             <span>Settings</span>
-            <ChannelSettings settings={ channelSettings } />
+            <ChannelSettings settings={ channelSettings } saveSettings={saveSettings} />
             <PasswordSettings/>
             <StreamKey streamKey={ channelSettings.streamKey } />
         </div>

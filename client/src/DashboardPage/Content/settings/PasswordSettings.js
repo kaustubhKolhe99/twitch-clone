@@ -1,25 +1,26 @@
 import React, { useState } from "react";
 import { passwordValidationMessage, validatePassword } from "../../../shared/validators";
 import { Input } from "../../../shared/components";
+import { useChangePassword } from "../../../shared/hooks";
 
-
+const inputs = [
+    {
+        field: 'password',
+        label: 'Current Password',
+        validationMessage: passwordValidationMessage,
+        type: 'password',
+    },
+    {
+        field: 'newPassword',
+        label: 'New Password',
+        validationMessage: passwordValidationMessage,
+        type: 'password',
+    }
+]
 
 export const PasswordSettings = () =>{
 
-    const inputs = [
-        {
-            field: 'password',
-            label: 'Current Password',
-            validationMessage: passwordValidationMessage,
-            type: 'password',
-        },
-        {
-            field: 'newPassword',
-            label: 'New Password',
-            validationMessage: passwordValidationMessage,
-            type: 'password',
-        }
-    ]
+
 
         const [formState , setFormState]  = useState({
         password:{
@@ -34,7 +35,9 @@ export const PasswordSettings = () =>{
         }
     });
 
-        
+
+    const { changePassword } = useChangePassword();
+
     const handleInputValueChange = (value, field) => {
         setFormState((prevState) => ({
             ...prevState,
@@ -64,7 +67,9 @@ export const PasswordSettings = () =>{
         !formState.password.isValid ;
     
     const handleFormSubmit = (e) =>{
-        e.preventDefault(); 
+        e.preventDefault();
+        
+        changePassword(formState.password.value, formState.newPassword.value);
     }
 
     return( 
