@@ -1,5 +1,6 @@
 import User from "../../models/User.js";
-export const   getChannels = async (req, res)=>{
+
+export const getChannels = async (req, res)=>{
     try{
         const users = await User.find({} , {
             channel: 1,
@@ -8,17 +9,17 @@ export const   getChannels = async (req, res)=>{
         }).populate("channel");
 
         const channels = users
-        .filter(u => u.channel.isActive)
-        .map(user => {
-            return {
-                id: user.channel._id,
-                title: user.channel.title,
-                avatarUrl: user.channel.avatarUrl,
-                username: user.username,
-                isOnline: false,
-            };
+            .filter((u) => u.channel.isActive)
+            .map((user) => {
+                return {
+                    id: user.channel._id,
+                    title: user.channel.title,
+                    avatarUrl: user.channel.avatarUrl,
+                    username: user.username,
+                    isOnline: false,
+                };
         });
-
+        
         return res.status(200).json({
             channels,
         })

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./dashboardPage.css";
-import { Nav } from "./Nav";
+import { Nav } from "./Nav";  
 import { Sidebar } from "./Sidebar";
 import { Content } from "./Content";
 import { useChannels, useUserDetails } from "../shared/hooks";

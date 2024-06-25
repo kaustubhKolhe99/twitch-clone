@@ -14,6 +14,7 @@ export const useChannels = () => {
                     "Error occurred while fetching the channels"
             );   
         }
+
         if(!isLogged){
             return setChannels({
                 channels: ChannelsData.data.channels,
@@ -30,8 +31,10 @@ export const useChannels = () => {
         }
 
         setChannels({
-            channels: ChannelsData.channels,
-            followedChannelsData: followedChannelsData.data.followedChannels,
+            channels: ChannelsData.data.channels,
+            followedChannelsData: ChannelsData.data.channels.filter((channel) => {
+                return(followedChannelsData.data.followedChannels.includes(channel.id));
+            })
         });
     }
 
