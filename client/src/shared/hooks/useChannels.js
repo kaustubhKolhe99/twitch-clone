@@ -32,17 +32,16 @@ export const useChannels = () => {
 
         setChannels({
             channels: ChannelsData.data.channels,
-            followedChannelsData: ChannelsData.data.channels.filter((channel) => {
+            followedChannels: ChannelsData.data.channels.filter((channel) => {
                 return(followedChannelsData.data.followedChannels.includes(channel.id));
             })
         });
     }
 
-    useEffect( ()=>{
-        console.log(channels);
-    }, [channels])
-
     return{
         getChannels,
+        isFetching: !Boolean(channels),
+        allChannels: channels?.channels,
+        followedChannels: channels?.followedChannels,
     }
 }

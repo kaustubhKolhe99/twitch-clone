@@ -4,20 +4,25 @@ import { Nav } from "./Nav";
 import { Sidebar } from "./Sidebar";
 import { Content } from "./Content";
 import { useChannels, useUserDetails } from "../shared/hooks";
+import { LoadingSpinner } from "../shared/components";
 
 
 export const DashboardPage = () => {
-  const { getChannels }  = useChannels();
+  const { getChannels, isFetching, allChannels, followedChannels }  = useChannels();
   const { isLogged } = useUserDetails();
   
   useEffect( () =>{
     getChannels(isLogged);
   }, [])
+
+  if(isFetching){
+    return( <LoadingSpinner/> )
+  }
   return(
     <div className="dashboard-container">
-      <Nav />
-      <Sidebar/>
-      <Content/>
+      <Nav /> 
+      <Sidebar channels={followedChannels}/>
+      <Content channels={allChannels}/>
     </div>
   );
 };
