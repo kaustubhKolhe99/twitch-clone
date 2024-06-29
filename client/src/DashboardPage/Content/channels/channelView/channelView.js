@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Chat } from './chat';
 import { ChannelDescription } from "./channelDescription";
+import { useChannelDetails } from "../../../../shared/hooks";
+import { useParams } from "react-router-dom";
+import { LoadingSpinner } from "../../../../shared/components";
 
-const ChannelDetails = {
-    id:1,
-    title: "Gaming channel",
-    description: 'playing call of duty mw3',
-    username: 'gamer',
-    isOnline: false,
-}
 export const ChannelView = () =>{
+    const { isFetching, getChannelDetails, channelDetails  } = useChannelDetails();
+
+    const { id } = useParams();
+
+    useEffect(()=>{
+        getChannelDetails(id)
+    },[])
+
+    if(isFetching){
+        return <LoadingSpinner/>
+    }
+
     return(
         <div className="channel-container">
             <div className="channel-video-description-section">
@@ -18,10 +26,10 @@ export const ChannelView = () =>{
                 </div>
 
                 <ChannelDescription
-                    channelId= {ChannelDetails.id}
-                    title= {ChannelDetails.title}
-                    description= { ChannelDetails.description}
-                    username= {ChannelDetails.username}
+                    channelId= {channelDetails.id}
+                    title= {channelDetails.title}
+                    description= { channelDetails.description}
+                    username= {channelDetails.username}
                 />
             </div>
             <Chat/>
