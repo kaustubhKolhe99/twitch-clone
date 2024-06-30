@@ -56,7 +56,7 @@ To get started with this project, follow these steps:
     ```
 
 4. **🔐 Set up environment variables**:
-    - Create a `.env` file in the `backend` directory and add the necessary environment variables:
+    - Edit a `.env` file in the `server` directory and add the necessary environment variables:
         ```env
         API_PORT=5002
         MONGO_URI=your_mongodb_connection_string
@@ -71,7 +71,7 @@ To get started with this project, follow these steps:
 
 6. **🚀 Run the API server**:
     ```sh
-    cd server
+    cd ../server
     npm start
     ```
 
@@ -97,6 +97,7 @@ Once the servers are up and running, you can access the application in your brow
 - **📹 Broadcast**: Start a live stream using an RTMP-compatible streaming software (e.g., OBS Studio).
 - **🔑 Stream Key**: Obtain a unique stream key from your profile settings to use with OBS for live streaming.
 - **👀 Watch**: View live streams from other users.
+- **💬Comment/Chat** Post comments and chat on the live stream.
 - **🟢 Channel Status**: See whether a channel is online or offline.
 
 ### 💬 Chat
