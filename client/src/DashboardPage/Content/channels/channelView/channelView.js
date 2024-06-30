@@ -6,12 +6,12 @@ import { useParams } from "react-router-dom";
 import { LoadingSpinner } from "../../../../shared/components";
 import { ReactFlvPlayer } from 'react-flv-player'
 
-export const Stream = () =>{
+export const Stream = ({streamUrl}) =>{
     return <div className="channel-video-container">
         <ReactFlvPlayer
             width="100%"
             height="100%"
-            url="http://localhost:8000/live/7f1b0fc6-85cf-47e3-bcda-4ed456759f63.flv"/>
+            url={streamUrl}/>
 
     </div>
 }
@@ -31,11 +31,15 @@ export const ChannelView = ({getChannels}) =>{
     return(
         <div className="channel-container">
             <div className="channel-video-description-section">
-                {/* <div className="channel-offline-placeholder">
-                    <span>Channel is offline</span>
-                </div> */}
-                <Stream/>
-
+                {
+                    channelDetails.isOnline ? (
+                    <Stream streamUrl={channelDetails.streamUrl}/>
+                    ):(
+                        <div className="channel-offline-placeholder">
+                            <span> Channel is Offline</span>
+                        </div>
+                    )
+                }
                 <ChannelDescription
                     channelId= {channelDetails.id}
                     title= {channelDetails.title}
