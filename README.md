@@ -64,7 +64,7 @@ To get started with this project, follow these steps:
         ```
 
 5. **🚀 Start the RTMP server**:
-        ```sh
+   ```sh
     cd ../rtmp-server
     npm start
     ```
