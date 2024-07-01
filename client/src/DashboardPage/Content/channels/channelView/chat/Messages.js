@@ -14,7 +14,7 @@ export const Messages = ({ messages }) => {
             {
                 messages.map(message => {
                     return(<Message 
-                        key={message.key}
+                        key={`${message.author}-${message.content}-${message.date}`}
                         author={message.author}
                         content={message.content} />)
                 })
