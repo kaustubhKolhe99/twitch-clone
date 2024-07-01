@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-export const NewMessageInput = ({ newMessage }) => {
+export const NewMessageInput = ({ sendMessage }) => {
 
     const [messageContent, setMessageContent ] = useState('');
 
@@ -9,8 +9,11 @@ export const NewMessageInput = ({ newMessage }) => {
     };
 
     const handleSendMessage = () =>{
-
-        setMessageContent('');
+        if(messageContent.length>0){
+            sendMessage(messageContent)
+        }
+        //after sending message reset input value
+        setMessageContent('')
     }
 
     const handleKeyPress = (e) =>{

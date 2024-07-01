@@ -6,6 +6,12 @@ import authRouter from "./src/routes/authRoutes.js";
 import mongoose from "mongoose"
 import channelsRouter from "./src/routes/channelsRouter.js";
 import settingsRouter from "./src/routes/settingsRouter.js";
+import { registerSocketServer } from "./src/io/io.js";
+
+// these imports intialize collection creation in mongodb
+import Message from "./src/models/Message.js";
+import User from "./src/models/User.js";
+import Channel from "./src/models/Channel.js";
 
 dotenv.config();
 
@@ -27,6 +33,8 @@ app.get("/", (req, res)=>{
 })
 
 const server = http.createServer(app)
+
+registerSocketServer(server);
 
 mongoose.connect(process.env.MONGO_URL)
     .then(()=>{
