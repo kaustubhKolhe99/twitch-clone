@@ -7,8 +7,6 @@ export const connectWithSocketServer = () =>{
     socket = io('http://localhost:5002')
 
     socket.on('connect', ()=>{
-        console.log("Successfully connected with socket.io server")
-        console.log(socket.id)  
     })
 
     socket.on('chat-history', (chatHistory) => {
@@ -18,7 +16,6 @@ export const connectWithSocketServer = () =>{
 
     socket.on('chat-message', (chatMessage)=>{
         const { chatHistory, setChatHistory} = useStore.getState();
-        console.log(chatMessage)
         setChatHistory({
             channelId: chatHistory.channelId,
             messages : [

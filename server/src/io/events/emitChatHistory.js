@@ -14,7 +14,6 @@ export const emitChatHistory = async (socket, channelId) =>{
                 }))
             })
         }
-        console.log(channelId)
         socket.emit('chat-history', {
             errorOccurred:true,
         })

@@ -13,7 +13,6 @@ export const useChatHistory = (channelId)=>{
         return ()=>{
             closeChatSubscription(channelId);
         }
-
     },[]);
 
     const sendMessage = (message) =>{
