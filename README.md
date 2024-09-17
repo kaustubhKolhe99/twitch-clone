@@ -114,3 +114,24 @@ Contributions are welcome! Please follow these steps to contribute:
 4. 💾 Commit your changes (`git commit -m 'Add some feature'`).
 5. 🚀 Push to the branch (`git push origin feature/your-feature-name`).
 6. 📥 Open a pull request.
+
+### ⚡️ Register as new user 
+![Screenshot from 2024-09-17 17-37-46](https://github.com/user-attachments/assets/6db3443b-ed98-4c76-9bc4-8ab18652f122)
+
+### ⚡️ Login in to existing user account
+![Screenshot from 2024-09-17 17-37-41](https://github.com/user-attachments/assets/b3fb0c47-2c67-424e-a667-becc3e41ff2a)
+
+### ⚡️ Go to Browse to explore other channerls
+![Screenshot from 2024-09-17 17-38-16](https://github.com/user-attachments/assets/83927e4c-d582-48d9-8155-e5f1b1faf1a6)
+
+### ⚡️ Go to MyAccount to edit account info
+![Screenshot from 2024-09-17 17-42-40](https://github.com/user-attachments/assets/ed1aac77-197b-44c7-8638-448acbabf1e3)
+ by default the user channel is disable, put any image link from google and put it in avatar url to enable account to stream 
+ the below string is the stream key 
+
+### ⚡️ Put the stream key to the OBS and server url of the rtmp server (default url if you are running locally: rtms://localhost/live) 
+![Screenshot from 2024-09-17 17-47-06](https://github.com/user-attachments/assets/479d3d2f-1a79-4d4c-8811-aa8a8e4430ad)
+
+### ⚡️ Check the stream, channel status and comment on the stream 
+![Screenshot from 2024-09-17 17-39-07](https://github.com/user-attachments/assets/4a5412e4-5469-418d-be48-78da8a14ede7)
+
